@@ -8,6 +8,18 @@ alias bup="brightnessctl set +10%"
 alias bdn="brightnessctl set 10%-"
 alias bat0="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
 alias bat1="upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percentage"
+alias fzfbat='fzf --preview="bat --color=always {}"'
+# xrandr --output HDMI-2 --right-of eDP-1
+# xrandr --output HDMI-2 --off
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -114,3 +126,6 @@ bindkey -v
 source /home/wadedjones/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(starship init zsh)"
+
+# Created by `pipx` on 2024-06-14 02:25:23
+export PATH="$PATH:/home/wadedjones/.local/bin"
