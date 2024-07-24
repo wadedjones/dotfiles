@@ -4,11 +4,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-alias bup="brightnessctl set +10%"
-alias bdn="brightnessctl set 10%-"
+# alias bup="brightnessctl set +10%"
+# alias bdn="brightnessctl set 10%-"
 alias bat0="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
 alias bat1="upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percentage"
 alias fzfbat='fzf --preview="bat --color=always {}"'
+alias cat="bat"
+alias on="$HOME/Notes/Notes/"
 # xrandr --output HDMI-2 --right-of eDP-1
 # xrandr --output HDMI-2 --off
 
@@ -25,7 +27,7 @@ function yy() {
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
