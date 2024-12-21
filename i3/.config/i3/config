@@ -22,6 +22,9 @@ bindsym $mod+shift+i exec i3lock-fancy
 bindcode $mod+72 exec brightnessctl set +10%
 bindcode $mod+71 exec brightnessctl set 10%-
 
+# move workspace between monitors
+bindsym $mod+p move workspace to output next
+
 for_window [class="^.*"] border pixel 2
 
 gaps inner 5

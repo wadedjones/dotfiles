@@ -3,13 +3,13 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 
 # alias bup="brightnessctl set +10%"
 # alias bdn="brightnessctl set 10%-"
 alias bat0="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
 alias bat1="upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percentage"
 alias fzfbat='fzf --preview="bat --color=always {}"'
-alias cat="bat"
 alias on="$HOME/Notes/Notes/"
 # xrandr --output HDMI-2 --right-of eDP-1
 # xrandr --output HDMI-2 --off
