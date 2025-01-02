@@ -18,6 +18,7 @@ $python\
 $docker_context\
 $conda\
 $time\
+$cmd_duration\
 $line_break$character"""
 
 palette = 'gruvbox_dark'
@@ -144,12 +145,16 @@ format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 # style = "bg:color_bg3"
 format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
 
-[time]
-disabled = false
-use_12hr = true
-time_format = '%I:%M'
-# style = "bg:color_bg1"
-format = ' $time'
+# [time]
+# disabled = false
+# use_12hr = true
+# time_format = '%I:%M'
+# # style = "bg:color_bg1"
+# format = 1' $time'
+
+[cmd_duration]
+min_time = 1
+format = '[$duration](fg:color_purple)'
 
 #(fg:color_fg0 bg:color_bg1)]($style)
 
