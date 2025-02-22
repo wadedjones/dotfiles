@@ -4,12 +4,31 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+export FZF_DEFAULT_OPTS="
+-e
+"
+export FZF_CTRL_T_OPTS="
+-e
+--no-reverse
+--no-height
+--walker-skip .git
+--bind 'enter:execute(nvim {1})+abort'
+"
+export FZF_ALT_C_OPTS="
+--no-reverse
+--no-height
+--walker-skip .git,.local
+"
+ #< /dev/tty
+# alias sf='nvim $(find * -type f | fzf -e --preview="bat --color=always {}")'
+
 
 # alias bup="brightnessctl set +10%"
 # alias bdn="brightnessctl set 10%-"
 alias bat0="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
 alias bat1="upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percentage"
 alias fzfbat='fzf --preview="bat --color=always {}"'
+alias sd='cd $(find * -type d | fzf -e)'
 alias on="$HOME/Notes/Notes/"
 # xrandr --output HDMI-2 --right-of eDP-1
 # xrandr --output HDMI-2 --off
@@ -125,7 +144,18 @@ EDITOR='nvim'
 
 # enable vi mode
 bindkey -v
+
+# syntax highlighting
 source /home/wadedjones/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fzf keymaps
+source <(fzf --zsh)
+
+# stop starship error
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+    zle -N zle-keymap-select "";
+fi
 
 eval "$(starship init zsh)"
 

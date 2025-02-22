@@ -25,10 +25,10 @@ bindcode $mod+71 exec brightnessctl set 10%-
 # move workspace between monitors
 bindsym $mod+p move workspace to output next
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 
-gaps inner 5
-gaps outer 5
+# gaps inner 5
+# gaps outer 5
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Meslo LGM Nerd Font 14
@@ -225,7 +225,7 @@ set $lightgray #bdae93
 set $green2 #0a9b66
 
 # class                 border     backgr     text       indicator|child_border
-client.focused          $green3 $green3    $bg        $green3 $green3
+client.focused          $darkgray $green3    $bg        $green3 $green3
 client.focused_inactive $lightgray  $darkgray  $lightgray $darkgray $darkgray
 client.unfocused        $darkgray  $darkgray  $lightgray $darkgray $darkgray
 client.urgent           $red       $red       $white   $red    $red

@@ -6,19 +6,7 @@ $username\
 $directory\
 $git_branch\
 $git_status\
-$c\
-$rust\
-$golang\
-$nodejs\
-$php\
-$java\
-$kotlin\
-$haskell\
-$python\
-$docker_context\
-$conda\
 $time\
-$cmd_duration\
 $line_break$character"""
 
 palette = 'gruvbox_dark'
@@ -64,7 +52,7 @@ RedHatEnterprise = "󱄛"
 show_always = true
 # style_user = "bg:color_orange fg:color_fg0"
 # style_root = "bg:color_orange fg:color_fg0"
-format = '[ $user ]($style)'
+format = '[ $user ](fg:color_blue)'
 
 [directory]
 # style = "fg:color_fg0 bg:color_yellow"

@@ -1,8 +1,7 @@
-theme = gruvbox-material
+theme = GruvboxDark
 font-family = MesloLGS Nerd Font Mono
 font-size = 13
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 window-decoration = false
-background-opacity = 0.8
