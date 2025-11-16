@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+export G_SLICE=always-malloc
 export FZF_DEFAULT_OPTS="
 -e
 "
@@ -19,6 +20,8 @@ export FZF_ALT_C_OPTS="
 --no-height
 --walker-skip .git,.local
 "
+
+export MANPAGER='nvim +Man!'
  #< /dev/tty
 # alias sf='nvim $(find * -type f | fzf -e --preview="bat --color=always {}")'
 
@@ -30,6 +33,9 @@ alias bat1="upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percen
 alias fzfbat='fzf --preview="bat --color=always {}"'
 alias sd='cd $(find * -type d | fzf -e)'
 alias on="$HOME/Notes/Notes/"
+alias tm="$HOME/.scripts/tmuxsession.sh"
+alias mm="$HOME/.scripts/makescript.sh"
+alias switch="$HOME/.scripts/switch"
 # xrandr --output HDMI-2 --right-of eDP-1
 # xrandr --output HDMI-2 --off
 

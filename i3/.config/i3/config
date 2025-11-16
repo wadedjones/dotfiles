@@ -13,9 +13,9 @@ set $mod Mod4
 
 exec --no-startup-id picom
 exec --no-startup-id feh --bg-scale /home/wadedjones/Wallpaper/florest-stair2.jpg
-exec_always --no-startup-id killall polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch_polybar.sh
-bindsym $mod+space exec rofi -show combi
+# exec_always --no-startup-id killall polybar
+# exec_always --no-startup-id $HOME/.config/polybar/launch_polybar.sh
+# bindsym $mod+space exec rofi -show combi
 bindsym $mod+shift+i exec i3lock-fancy
 #bindsym xF86MonBrightnessUp exec brightnessctl -c backlight set +10%
 #bindsym xF86MonBrightnessDown exec brightnessctl -c backlight set 10%-
@@ -66,6 +66,12 @@ bindcode $mod+70 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ tog
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# assign specific workspaces
+assign [class="ghostty"] 1
+assign [class="firefox"] 2
+assign [class="obsidian"] 3
+assign [class="Gimp"] 4
+
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
@@ -77,7 +83,8 @@ bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+space exec --no-startup-id dmenu_run -b -fn 'Meslo LGM Nerd Font-12' -h 28
+bindsym $mod+Shift+space exec "$HOME/.scripts/switch"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -109,7 +116,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+h split h
+bindsym $mod+z split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -123,7 +130,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+#bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
@@ -230,3 +237,17 @@ client.focused_inactive $lightgray  $darkgray  $lightgray $darkgray $darkgray
 client.unfocused        $darkgray  $darkgray  $lightgray $darkgray $darkgray
 client.urgent           $red       $red       $white   $red    $red
 
+bar {
+	status_command i3status -c ~/.config/i3status.conf
+	font pango:Meslo LGM Nerd Font 12
+	colors {
+		background #282828
+		statusline #ebdbb2
+		separator  #666666
+		focused_workspace  #458588 #458588 #ebdbb2
+		#active_workspace   #83a598 #83a598 #ebdbb2
+		active_workspace   #458588 #458588 #ebdbb2
+		inactive_workspace #504945 #504945 #ebdbb2
+		urgent_workspace   #cc241d #cc241d #504945
+	}
+}
